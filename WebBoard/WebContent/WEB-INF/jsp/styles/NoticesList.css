@@ -1,0 +1,42 @@
+
+.NoticesList td {
+    height: 1cm;
+    font-size: 12pt;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.NoticesList td:nth-child(even) {
+    width: 3cm;
+    
+}
+
+    
+.NoticesList tr:nth-child(even){
+    background-color: lightgray;
+}
+
+.NoticesList tr:nth-child(odd){
+       background-color: gray;
+
+}
+
+.NoticesList tr:not(:first-child){
+    transition: all 5s ease-in-out;
+
+
+   }
+
+.NoticesList tr:not(:first-child):hover {
+    color:black;
+    text-transform:uppercase;
+    transform: scale(1,1.3);
+    background-color: maroon;
+   transition: all 5s ease-in-out;
+
+
+  }
+
+
+   
+
