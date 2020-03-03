@@ -28,6 +28,7 @@ public class urlAcsses {
         urlPatterns1.add("/login");
         urlPatterns1.add("/notices");
         urlPatterns1.add("/createNotices");
+        urlPatterns1.add("/editNotices");
  
         mapConfig.put(ROLE_User, urlPatterns1);
  
@@ -41,6 +42,8 @@ public class urlAcsses {
         urlPatterns2.add("/edituser");
         urlPatterns2.add("/notices");
         urlPatterns2.add("/createNotices");
+        urlPatterns2.add("/editNotices");
+
 
  
         mapConfig.put(ROLE_Admin, urlPatterns2);

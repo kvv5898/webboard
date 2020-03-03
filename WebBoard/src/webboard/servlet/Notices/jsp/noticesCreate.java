@@ -55,7 +55,7 @@ public class noticesCreate extends HttpServlet {
  
         if (errorString == null) {
             try {
-            	Create.notscreate(conn, noticescreate);
+            	Create.noticescreate(conn, noticescreate);
             } catch (SQLException e) {
                 e.printStackTrace();
                 errorString = e.getMessage();
