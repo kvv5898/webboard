@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import webboard.conn.ConnMySQL;
+import webboard.conn.JDBCPostgreSQL;
 import webboard.servlet.mysql.finduser;
 import webboard.tabl.User_account;
 import webbordlog.logUser;
@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
  
     	 Connection conn = null;
  		try {
- 			conn = ConnMySQL.conni();
+ 			conn = JDBCPostgreSQL.conni();
  			logUser.storeConnection(request, conn);
  		} catch (ClassNotFoundException | SQLException e1) {
  			// TODO Auto-generated catch block

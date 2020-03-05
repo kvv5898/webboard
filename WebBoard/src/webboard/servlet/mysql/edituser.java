@@ -9,7 +9,7 @@ import webboard.tabl.User_account;
 public class edituser {
  
 	public static void userEDIT(Connection conn, User_account edit_user) throws SQLException {
-        String sql = "Update webboard.user_account set user_name =?, email=?, password =? where user_id=? ";
+        String sql = "Update user_account set user_name =?, email=?, password =? where user_id=? ";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
         System.out.println("pstm - " + pstm);

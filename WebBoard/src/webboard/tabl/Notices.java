@@ -1,5 +1,6 @@
 package webboard.tabl;
 
+
 public class Notices {
  
    private Integer notices_id;

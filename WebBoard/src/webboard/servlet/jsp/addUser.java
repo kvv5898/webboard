@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import webboard.conn.ConnMySQL;
+import webboard.conn.JDBCPostgreSQL;
 import webboard.servlet.mysql.useradd;
 import webboard.servlet.other.date_time;
 import webboard.tabl.User_account;
@@ -44,7 +44,7 @@ public class addUser extends HttpServlet {
 		
     	if (conn==null) {
     		try {
-				conn = ConnMySQL.conni();
+				conn = JDBCPostgreSQL.conni();
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

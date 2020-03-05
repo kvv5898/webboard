@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import webboard.conn.ConnMySQL;
+import webboard.conn.JDBCPostgreSQL;
 import webboard.servlet.mysql.edituser;
 import webboard.servlet.mysql.finduser;
 import webboard.tabl.User_account;
@@ -30,7 +30,7 @@ public class EditUser extends HttpServlet {
             throws ServletException, IOException {
         Connection conn = null;
 		try {
-			conn = ConnMySQL.conni();
+			conn = JDBCPostgreSQL.conni();
 		} catch (ClassNotFoundException | SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

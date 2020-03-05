@@ -14,8 +14,8 @@ public class finduser {
 	public static User_account userFIND(Connection conn, //
             String user_name, String password) throws SQLException {
 		
-        String sql = "Select USER_ID, USER_NAME, PASSWORD from webboard.user_account" //
-                + " where binary USER_NAME = ? and binary PASSWORD= ?";
+        String sql = "Select user_id, user_name, password from user_account" //
+                + " where user_name = ? and password= ?";
         System.out.println("Find (" + user_name + ") in DB");
         PreparedStatement pstm = conn.prepareStatement(sql);
         pstm.setString(1, user_name);
@@ -37,7 +37,7 @@ public class finduser {
 			}
             userfind.setroles(roles);
             result = "Find ok";
-            Log_finduser.find_log(conn, user_name, password,  result);
+//            Log_finduser.find_log(conn, user_name, password,  result);
             return userfind;
         }
         result = "Find fault";
@@ -49,7 +49,7 @@ public class finduser {
 	public static User_account userFIND2(Connection conn, //
             Integer user_id) throws SQLException {
  
-        String sql = "Select * from webboard.user_account where USER_ID = ?";
+        String sql = "Select * from user_account where user_id = ?";
         System.out.println("Find (" + user_id + ") in DB");
         PreparedStatement pstm = conn.prepareStatement(sql);
         pstm.setInt(1, user_id);
@@ -57,10 +57,10 @@ public class finduser {
         
         String User_name = null, Email = null, Password = null,  Us_Date = null;
         while (rs.next()) {
-    	User_name = rs.getString("USER_NAME");
+    	User_name = rs.getString("user_name");
         Email = rs.getString("email");
-        Password = rs.getString("PASSWORD");
-        Us_Date = rs.getString("Date");
+        Password = rs.getString("password");
+        Us_Date = rs.getString("date");
         }
         User_account User_account_edit = new User_account();
         

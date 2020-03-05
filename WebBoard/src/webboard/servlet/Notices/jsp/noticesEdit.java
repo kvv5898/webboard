@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import webboard.conn.ConnMySQL;
+import webboard.conn.JDBCPostgreSQL;
 import webboard.servlet.Notices.mysql.Edit;
 import webboard.servlet.Notices.mysql.Info;
+import webboard.servlet.other.date_time;
 import webboard.tabl.Notices;
 import webbordlog.logUser;
 
@@ -29,7 +31,7 @@ public class noticesEdit extends HttpServlet {
             throws ServletException, IOException {
         Connection conn = null;
 		try {
-			conn = ConnMySQL.conni();
+			conn = JDBCPostgreSQL.conni();
 		} catch (ClassNotFoundException | SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -44,24 +46,29 @@ public class noticesEdit extends HttpServlet {
         }
         
         
-        Integer Notices_edit = null;
+        Notices notices_find3 = null;
  
         String errorString = null;
  
         try {
-        	Notices_edit = Info.find2(conn, notices_id);
+        	notices_find3 = Info.find3(conn, notices_id);
         } catch (SQLException e) {
             e.printStackTrace();
             errorString = e.getMessage();
         }
         
-        if (errorString != null && Notices_edit == null) {
+        if (errorString != null && notices_find3 == null) {
             response.sendRedirect(request.getServletPath() + "/notices");
             return;
         }
  
+//       System.out.println("notices_id: " + notices_find3.get(0).getnotices_id());
+//       System.out.println("user_name: " + notices_find3.getuser_name());
+//        System.out.println("user_name: " + notices_find3.getnotices_date());
+//       System.out.println("content: " + notices_find3.get(0).getcontent());
+        
         request.setAttribute("errorInt", errorString);
-        request.setAttribute("Notices_edit", Notices_edit);
+        request.setAttribute("edit_Notices", notices_find3);
  
         RequestDispatcher dispatcher = request.getServletContext()
                 .getRequestDispatcher("/WEB-INF/jsp/EditNotices.jsp");
@@ -86,7 +93,7 @@ public class noticesEdit extends HttpServlet {
         
         String user_name = (String) request.getParameter("user_name");
         String content = (String) request.getParameter("content");
-        String us_Date = (String) request.getParameter("us_Date");
+        String us_Date = date_time.date();
         String roles = null;
         System.out.println("user_name - " + user_name);
         Notices notices_edit = new Notices(notices_id, user_name, us_Date, content, roles);

@@ -52,7 +52,7 @@
           <td>
           <ul class="menu">
           <c:choose>
-            <c:when test="${user == notices.user_name}">
+            <c:when test="${user == notices.user_name or user == 'Admin' }">
     <li><p class="blink">Управление</p>
             
         <ul class="submenu">

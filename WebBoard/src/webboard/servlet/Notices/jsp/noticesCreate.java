@@ -45,9 +45,8 @@ public class noticesCreate extends HttpServlet {
         Integer notices_id = null;
         String roles = null;
         
-       
         String notices_date = date_time.date();
-//        System.out.println("formatting: " + us_Date);
+//        System.out.println("notices_date: " + notices_date);
         
         Notices noticescreate = new Notices(notices_id, user_name, notices_date, content, roles);
  

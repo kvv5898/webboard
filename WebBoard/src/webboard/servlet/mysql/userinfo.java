@@ -13,7 +13,7 @@ import webboard.tabl.User_account;
 public class userinfo {
 	
 	public static List<User_account> infouser(Connection conn) throws SQLException {
-        String sql = "Select user_id, user_name,  email, password, Date from webboard.user_account";
+        String sql = "Select user_id, user_name,  email, password, date from user_account";
         System.out.println("Search info users in DB");
         PreparedStatement pstm = conn.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();

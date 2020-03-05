@@ -10,7 +10,7 @@ import webboard.tabl.Notices;
 public class Edit {
  
 	public static void noticesEDIT(Connection conn, Notices edit_notiñes) throws SQLException {
-        String sql = "Update webboard.notiñes set (SELECT user_id From user_account WHERE USER_NAME=?), DATE=?, CONTENT =? where NOTIÑES_ID=? ";
+        String sql = "Update notices set user_id=(SELECT user_id From user_account WHERE user_name=?), date=?, content =? where notices_id=? ";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
         System.out.println("pstm - " + pstm);

@@ -16,7 +16,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import webboard.conn.ConnMySQL;
+
+import webboard.conn.JDBCPostgreSQL;
 import webboard.tabl.User_account;
 import webboardSecurityAcsses.SecurityAcsses;
 import webboardUserRole.UserRoleRequestWrapper;
@@ -48,7 +49,7 @@ public class SecurityFilter implements Filter {
         if (logUser.getStoredConnection(request) == null & logUser.getlogUser(request.getSession()) != null) 
         {
         	try {
-				conn = ConnMySQL.conni();
+				conn = JDBCPostgreSQL.conni();
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

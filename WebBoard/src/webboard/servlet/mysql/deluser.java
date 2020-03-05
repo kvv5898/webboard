@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class deluser {
  
 	public static void userDEL(Connection conn, Integer user_id, String user_name) throws SQLException {
-        String sql = "Delete From webboard.user_account where USER_ID= ?";
+        String sql = "Delete From user_account where user_id= ?";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
