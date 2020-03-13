@@ -33,6 +33,6 @@
             </tr>
          </table>
       </form> 
-      <a href="${pageContext.request.contextPath}/home">Ссылка для не зарегистрированных пользователей</a>   
+      <a href="${pageContext.request.contextPath}/adduser">Ссылка для не зарегистрированных пользователей</a>   
    </body>
 </html>

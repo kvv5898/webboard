@@ -5,55 +5,37 @@
 <html>
 <style>
    <%@include file='styles/menu.css' %>
+   <%@include file='styles/NoticesList.css' %>
 </style>
  <head>
     <meta charset="UTF-8">
     <title>Notices List</title>
-    <style>
-   .blink {
-    animation: blink 5s infinite; /* Параметры анимации */
-   }
-   @keyframes blink {
-    from { opacity: 0; /* Непрозрачный текст */ }
-    to { opacity: 2; /* Прозрачный текст */ }
-   }
-  </style>
  </head>
  <body>
      <jsp:include page="_header.jsp"></jsp:include>
      <jsp:include page="_menu.jsp"></jsp:include>
-    <h3>Объявления</h3>
- 
+     
+  <br>   
+<a href="createNotices" class="c">Добавить объявление</a>
     <p style="color: red;">${errorString}</p>
     
-   <table>
+   <table align="center">
+   <th>Дата</th>
+   <th width="800">Сообщение</th>
+   <th width="150">Пользователь</th>
+   <th width="150">Управление</th>
    
        <c:forEach items="${noticesList}" var="notices" >
           
           <tr>
           <td><p>${notices.notices_date}</p> </td>
           <td><p>${notices.content}</p> </td>
-           <td>
-          <c:choose>
-    <c:when test="${notices.user_name == 'Admin'}">
-        <p><font color="red"> ${notices.user_name}</font></p>
-    </c:when>
-    <c:when test="${notices.user_name == 'Koly'}">
-        <p><font color="green"> ${notices.user_name}</font></p>
-    </c:when>
-    <c:when test="${notices.user_name == 'Pety'}">
-        <p><font color="Brown"> ${notices.user_name}</font></p>
-    </c:when>
-    <c:otherwise>
-       <p><font color="black"> ${notices.user_name}</font></p>
-    </c:otherwise>
-    </c:choose>
-          </td>
+          <td><p>${notices.user_name}</p></td>
           <td>
           <ul class="menu">
           <c:choose>
             <c:when test="${user == notices.user_name or user == 'Admin' }">
-    <li><p class="blink">Управление</p>
+    <li><p class="blink">Жми</p>
             
         <ul class="submenu">
             <li><a href="editNotices?notices_id=${notices.notices_id}">Изменить</a></li>
@@ -64,13 +46,11 @@
     </c:choose>
         </ul>
           </td>
-          </tr>
-             
+          </tr>    
        </c:forEach>
-      
   </table>
-  
-  <a href="createNotices" >Добавить объявление</a>
- 
- </body>
+  <br>
+  <br>
+       <jsp:include page="_footer.jsp"></jsp:include>
+   </body>
 </html>

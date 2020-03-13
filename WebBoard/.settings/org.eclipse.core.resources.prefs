@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/jsp/LoginView.jsp=UTF-8
 encoding//WebContent/WEB-INF/jsp/accessDeniedView.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/styles/NoticesList.css=UTF-8

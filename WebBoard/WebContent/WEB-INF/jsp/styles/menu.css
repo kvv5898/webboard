@@ -30,9 +30,10 @@ ul.menu > li > a:hover {
     background-color: black;
 }
 ul.submenu {
+	font: 81% 'Verdana';
     display: none;
     position: absolute;
-    width: 155px;
+    width: 154px;
     top: 0px;
     left: 0px;
     background-color: white;

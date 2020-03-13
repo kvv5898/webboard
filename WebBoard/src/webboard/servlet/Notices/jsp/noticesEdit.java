@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import webboard.conn.ConnMySQL;
+
 import webboard.conn.JDBCPostgreSQL;
 import webboard.servlet.Notices.mysql.Edit;
 import webboard.servlet.Notices.mysql.Info;
